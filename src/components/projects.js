@@ -24,7 +24,8 @@ const Projects = () => {
   ],
   workflow: "Admin/Manager assigns tasks → Employee accepts task → Marks as Completed or Failed → Dashboard updates dynamically.",
   backend: "Frontend-based authentication system using LocalStorage for session management (No external backend).",
-  performance: "Optimized UI rendering with React state management and reusable components."
+  performance: "Optimized UI rendering with React state management and reusable components.",
+  href: "https://react-frontendproject.netlify.app/",
 },
  {
   id: 2,
@@ -42,30 +43,9 @@ const Projects = () => {
   ],
   frontend: "Built completely with Vanilla JavaScript for full control over DOM manipulation and animation sequencing.",
   animation: "Custom page transition system using JavaScript timing functions and CSS transforms for realistic book effects.",
-  performance: "Lightweight architecture with optimized repaint/reflow handling for ultra-smooth animation performance."
+  performance: "Lightweight architecture with optimized repaint/reflow handling for ultra-smooth animation performance.",
+  href: "https://portfolio-book1.netlify.app/",
 },
-    {
-      id: 3,
-      title: "OmniFlow CMS",
-      category: "Content Management",
-      image: "https://picsum.photos/800/600?random=3",
-      description: "Custom blog CMS featuring an advanced approval workflow and multi-role access controls.",
-      tags: ["React", "Go", "ElasticSearch", "AWS"],
-      features: ["Drafting & Approval queues", "Rich text editor custom plugins", "Search by ElasticSearch"],
-      backend: "Golang backend for lightning-fast content delivery and processing.",
-      performance: "Optimized for Core Web Vitals with automatic image transformation (AVIF/WebP)."
-    },
-    {
-      id: 4,
-      title: "Guardian Auth Suite",
-      category: "Security & Infrastructure",
-      image: "https://picsum.photos/800/600?random=4",
-      description: "Unified authentication service providing RBAC, MFA, and OAuth2 for large-scale application suites.",
-      tags: ["Node.js", "OAuth2", "PostgreSQL", "Docker"],
-      features: ["Multi-factor authentication", "Single sign-on (SSO)", "Session management"],
-      backend: "Highly secure architecture utilizing encrypted session storage and brute-force protection.",
-      performance: "Ultra-low latency authentication responses (<50ms globally)."
-    }
   ];
 
   return (
@@ -99,7 +79,7 @@ const Projects = () => {
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="w-full h-full object-contain grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -139,7 +119,7 @@ const Projects = () => {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-4xl max-h-[90vh] glass rounded-3xl border border-white/10 overflow-y-auto"
+              className="relative w-full max-w-5xl max-h-[90vh] glass rounded-3xl border border-white/10 overflow-y-auto"
             >
               <button 
                 onClick={() => setActiveProject(null)}
@@ -153,7 +133,7 @@ const Projects = () => {
                   <img 
                     src={activeProject.image} 
                     alt={activeProject.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div className="p-8 lg:p-12">
@@ -194,10 +174,10 @@ const Projects = () => {
                   </div>
 
                   <div className="mt-10 flex gap-4">
-                    <button className="flex-1 px-6 py-3 bg-cyan-500 text-slate-950 font-bold rounded-xl flex items-center justify-center hover:bg-cyan-400 transition-colors">
+                    <button onClick={() => window.open(activeProject.href, '_blank')} className="flex-1 px-6 py-3 bg-cyan-500 text-slate-950 font-bold rounded-xl flex items-center justify-center hover:bg-cyan-400 transition-colors">
                       Live Preview <ExternalLink size={18} className="ml-2" />
                     </button>
-                    <button className="px-6 py-3 glass border border-white/10 text-white font-bold rounded-xl flex items-center justify-center hover:bg-white/5 transition-colors">
+                    <button onClick={() => window.open(activeProject.href, '_blank')} className="px-6 py-3 glass border border-white/10 text-white font-bold rounded-xl flex items-center justify-center hover:bg-white/5 transition-colors">
                       <Github size={20} />
                     </button>
                   </div>
